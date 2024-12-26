@@ -1,0 +1,51 @@
+{
+  "name": "la-voz-de-los-cuentos-app",
+  "version": "0.0.1",
+  "description": "La Voz De Los Cuentos App",
+  "type": "module",
+  "keywords": [
+    "capacitor",
+    "mobile"
+  ],
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:android": "npm capacitor:build --android && npx cap run android",
+    "build:ios": "npm capacitor:build --ios && npx cap run ios",
+    "format": "prettier --write \"src/**/*.{js,vue,css,html,md}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+
+
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/camera": "latest",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/ios": "^6.2.0",
+    "@capacitor/splash-screen": "latest",
+    "eslint-plugin-vue": "^9.28.0"
+
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0",
+    "vite": "^5.4.2",
+    "dotenv": "^16.4.5",
+    "env-cmd": "^10.1.0",
+    "eslint": "^9.12.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-astro": "^1.2.4",
+    "googleapis": "^144.0.0",
+    "mkdirp": "^3.0.1",
+    "ncp": "^2.0.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "stylelint": "^16.9.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-recommended": "^14.0.1",
+    "stylelint-config-recommended-vue": "^1.5.0"
+  },
+  "author": "jjlmoya",
+  "license": "MIT"
+}

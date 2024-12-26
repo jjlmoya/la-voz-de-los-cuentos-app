@@ -1,0 +1,10 @@
+{
+  "appId": "com.lavozdeloscuentos.app",
+  "appName": "la-voz-de-los-cuentos-app",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
