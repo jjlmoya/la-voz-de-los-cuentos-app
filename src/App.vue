@@ -1,6 +1,4 @@
-<script setup>
-  import HelloWorld from './components/HelloWorld.vue'
-</script>
+<script setup></script>
 
 <template>
   <div>
@@ -11,7 +9,7 @@
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <!--<StoryPage />-->
 </template>
 
 <style scoped>
