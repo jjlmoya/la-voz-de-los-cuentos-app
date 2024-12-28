@@ -26,7 +26,6 @@
     "@overgaming/vicius": "^0.21.0",
     "eslint-plugin-vue": "^9.32.0",
     "howler": "^2.2.4",
-    "la-voz-de-los-cuentos": "0.1.207",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
