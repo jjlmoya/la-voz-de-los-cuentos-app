@@ -1,7 +1,7 @@
 <!-- filepath: /d:/code/la-voz-de-los-cuentos-app/src/views/Home.vue -->
 <template>
   <div>
-    <h1>Splash</h1>
+    <h1>Home</h1>
   </div>
 </template>
 
