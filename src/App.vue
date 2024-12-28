@@ -1,8 +1,6 @@
-<!-- filepath: /d:/code/la-voz-de-los-cuentos-app/src/App.vue -->
 <script setup></script>
 
 <template>
-  test
   <router-view></router-view>
 </template>
 
