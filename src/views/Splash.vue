@@ -16,7 +16,7 @@
 
   onMounted(() => {
     const sound = new Howl({
-      src: ['/public/assets/audio/bso/the-magic-braid.mp3'],
+      src: ['/assets/audio/bso/the-magic-braid.mp3'],
       volume: 0
     })
 
