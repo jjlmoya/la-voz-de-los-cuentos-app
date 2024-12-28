@@ -1,19 +1,13 @@
 <template>
   <div>
-    <header>
-      header
-    </header>
+    <header>header</header>
     <main>
       <router-view></router-view>
     </main>
-    <footer>
-      foote
-    </footer>
+    <footer>foote</footer>
   </div>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
-<style scoped>
-</style>
+<style scoped></style>
