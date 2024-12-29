@@ -2,7 +2,7 @@
 <template>
   <div class="splash-screen">
     <div class="logo-container">
-      <img src="@/assets/imgs/logo.png" alt="Logo" class="logo" />
+      <img src="@/assets/logo/es.webp" alt="Logo" class="logo" />
     </div>
   </div>
 </template>
