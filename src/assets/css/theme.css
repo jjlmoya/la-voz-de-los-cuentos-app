@@ -4,6 +4,7 @@
   --v-color-accent-primary-hover: hsl(165, 60%, 40%);
   --v-color-accent-primary-focus: hsl(165, 60%, 40%);
   --v-color-accent-primary-active: hsl(165, 60%, 40%);
+  --v-color-surface: var(--v-color-primary);
 }
 
 .theme--es {
@@ -12,4 +13,5 @@
   --v-color-accent-primary-hover: hsl(215, 76%, 44%);
   --v-color-accent-primary-focus: hsl(215, 76%, 44%);
   --v-color-accent-primary-active: hsl(215, 76%, 44%);
+  --v-color-surface: var(--v-color-primary);
 }

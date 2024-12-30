@@ -1,4 +1,3 @@
-<!-- filepath: /d:/code/la-voz-de-los-cuentos-app/src/views/Splash.vue -->
 <template>
   <div class="splash-screen">
     <div class="logo-container">
