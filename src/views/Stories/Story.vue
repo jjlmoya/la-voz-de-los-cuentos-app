@@ -1,41 +1,39 @@
 <template>
   <div class="story">
-    <div class="click-area left" @click="previousPhrase"></div>
-    <div class="click-area right" @click="nextPhrase"></div>
-    <div class="story-heading">
-      <div>{{ formattedStory.title }}</div>
-    </div>
-    <div class="story-wrapper">
-      <div
-        class="story-content"
-        v-for="(phrase, i) in formattedStory.phrases"
-        :class="{
-          'active-phrase': currentPhrase === i,
-          'next-phrase': currentPhrase + 1 === i,
-          'slide-in-left': currentPhrase === i && transitioning
-        }"
-        :key="i"
-      >
-        <div
-          class="story-image"
-          :class="`${getMetadataValue()?.class} grid-${getMetadataValue()?.grid}`"
-          :style="getMetadataValue()?.style"
-        >
-          <img
-            src="@/assets/stories/kronar-el-susurro-del-tiempo-roto/01.png"
-          />
+    <div v-if="loading" class="loading">Cargando...</div>
+    <div v-else>
+      <div class="click-area left" @click="previousPhrase"></div>
+      <div class="click-area right" @click="nextPhrase"></div>
+      <div class="story-heading">{{ formattedStory.title }}</div>
+      <div class="story-wrapper">
+        <div class="story-progress">
+          <div
+            class="progress-bar"
+            :style="{ width: progressWidth + '%' }"
+          ></div>
         </div>
-        <div class="story-text">
-          <div class="story-progress">
-            <div
-              class="progress-bar"
-              :style="{ width: progressWidth + '%' }"
-            ></div>
+        <div
+          class="story-content"
+          v-for="(phrase, i) in formattedStory.phrases"
+          :key="i"
+          :class="{
+            'active-phrase': currentPhrase === i,
+            'next-phrase': currentPhrase + 1 === i,
+            'slide-in-left': currentPhrase === i && transitioning
+          }"
+        >
+          <div
+            class="story-image"
+            :class="`${currentPhrase === i ? precalculatedMetadata[i]?.class: ''} grid-${currentPhrase === i ? precalculatedMetadata[i]?.grid : ''}`"
+            :style="precalculatedMetadata[i]?.style"
+          >
+            <img
+              :src="getImageSrc(precalculatedMetadata[i]?.image)"
+              v-if="precalculatedMetadata[i]?.image"
+            />
           </div>
-          <div class="story-phrases">
-            <p :id="i">
-              {{ phrase }}
-            </p>
+          <div class="story-text">
+            <p :id="i">{{ phrase }}</p>
           </div>
         </div>
       </div>
@@ -54,25 +52,39 @@
   const currentPhrase = ref(0)
   const sound = ref(null)
   const transitioning = ref(false)
+  const precalculatedMetadata = ref([])
+  const loading = ref(true)
 
-  const getMetadataValue = () => {
-    try {
-      const index =
-        currentPhrase.value + 1 < 10
-          ? `0${currentPhrase.value + 1}`
-          : currentPhrase.value
-      console.log(index)
-      if (!metadata.value) return ''
-      return metadata.value[index]
-    } catch (error) {
-      return {}
-    }
+  const precalculateMetadata = () => {
+    if (!metadata.value) return []
+    return formattedStory.value.phrases.map((_, index) => {
+      const idx = index + 1 < 10 ? `0${index + 1}` : index + 1
+      return {
+        image: idx,
+        ...metadata.value[idx]
+      }
+    })
   }
 
+  const getImageSrc = image => {
+    return image
+      ? new URL(
+          `../../assets/stories/kronar-el-susurro-del-tiempo-roto/${image}.webp`,
+          import.meta.url
+        ).href
+      : ''
+  }
+
+  watch(metadata, newVal => {
+    if (newVal) {
+      precalculatedMetadata.value = precalculateMetadata()
+      loading.value = false
+    }
+  })
+
   const playSFX = () => {
-    const meta = getMetadataValue()
-    console.log({ meta })
-    if (meta && meta.sfx) {
+    const meta = precalculatedMetadata.value[currentPhrase.value]
+    if (meta?.sfx) {
       const playSound = () => {
         sound.value = new Howl({
           src: [`/assets/audio/sfx/${meta.sfx.file}.wav`],
@@ -152,6 +164,16 @@
     font-size: 22px;
   }
 
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    font-size: 24px;
+    color: white;
+  }
+
   .click-area {
     position: absolute;
     top: 0;
@@ -182,7 +204,7 @@
     object-fit: cover;
   }
 
-  w .story-wrapper {
+  .story-wrapper {
     position: relative;
     width: 100vw;
     height: 100vw;
@@ -190,9 +212,9 @@
     grid-gap: 0;
     background-color: rgba(0, 0, 0, 0.8);
   }
+
   .story-text {
     position: fixed;
-    min-height: 200px;
     bottom: 0;
     left: 0;
     width: 100vw;
@@ -220,13 +242,15 @@
     top: 0;
     left: 0;
     height: 5px;
-    background-color: #4caf50;
+    background-color: var(--v-color-primary);
     transition: width 0.3s ease;
   }
 
+  .story-text {
+    padding: 1em;
+  }
   .story-heading {
     font-size: 18px;
-    padding: 1em;
     text-align: center;
     font-weight: bold;
     position: absolute;
@@ -235,21 +259,8 @@
     width: 100vw;
     display: grid;
     grid-gap: 0;
-    background-color: rgba(0, 0, 0, 0.7);
     z-index: 20;
-  }
-
-  .story-phrases {
-    position: relative;
-  }
-
-  .story-phrases > div {
-    position: absolute;
-    width: 100%;
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  .story-phrases p {
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 1em;
   }
 
