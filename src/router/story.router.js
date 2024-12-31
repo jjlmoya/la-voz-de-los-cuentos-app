@@ -1,5 +1,5 @@
-import Story from "../views/Stories/Story.vue";
-import StoryList from "../views/Stories/StoryList.vue";
+import Story from '../views/Stories/Story.vue'
+import StoryList from '../views/Stories/StoryList.vue'
 
 export default [
   {

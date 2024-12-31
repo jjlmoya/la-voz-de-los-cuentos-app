@@ -13,11 +13,7 @@ const routes = [
   {
     path: '/app',
     component: LayoutDefault,
-    children: [
-      ...storyRouter,
-      ...coreRouter,
-      ...characterRouter
-    ]
+    children: [...storyRouter, ...coreRouter, ...characterRouter]
   }
 ]
 

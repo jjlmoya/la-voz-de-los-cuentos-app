@@ -1,0 +1,10 @@
+{
+  "01": {
+    "style": {
+      "animation-duration": "30s"
+    },
+    "class": "zoom-in",
+    "grid": 9,
+    "transition": "slide-in-left"
+  }
+}

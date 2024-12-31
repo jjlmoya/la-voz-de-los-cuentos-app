@@ -3,7 +3,7 @@
     <h1>Home</h1>
     <div>Router List:</div>
     <div v-for="page in pages">
-      <div @click="router.push({name: page})">
+      <div @click="router.push({ name: page })">
         {{ page }}
       </div>
     </div>
@@ -15,5 +15,13 @@
 
   const router = useRouter()
   //TODO: Temporal debug
-  const pages = ['home', 'story', 'stories', 'character', 'characters', 'setup', 'splash']
+  const pages = [
+    'home',
+    'story',
+    'stories',
+    'character',
+    'characters',
+    'setup',
+    'splash'
+  ]
 </script>
