@@ -1,0 +1,12 @@
+@import url('./blink');
+@import url('./zoom-in.css');
+@import url('./bounce.css');
+@import url('./shake.css');
+@import url('./pulse.css');
+@import url('./wobble.css');
+
+@import url('./_helper.css');
+
+:root {
+  --animation-duration: 3s;
+}

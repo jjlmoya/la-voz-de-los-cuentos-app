@@ -13,7 +13,7 @@ export default function useStory(slug) {
   const loadMetadata = async () => {
     try {
       const metadataModule = await import(
-        `../assets/stories/${slug}/metadata.json`
+        `../assets/stories/${slug}/metadata.js`
       )
       metadata.value = metadataModule.default
     } catch (error) {

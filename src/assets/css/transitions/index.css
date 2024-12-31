@@ -1,0 +1,6 @@
+@import url('./fadeIn.css');
+@import url('./slideInLeft.css');
+
+:root {
+  --transition-duration: 0.1s;
+}

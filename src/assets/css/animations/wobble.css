@@ -1,0 +1,33 @@
+:root {
+  --wobble-scale: 1.5;
+}
+.wobble {
+  animation: wobble var(--animation-duration, 1s) ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(5%) scale(var(--wobble-scale));
+  }
+
+  15% {
+    transform: translateX(-20%) rotate(-5deg) scale(var(--wobble-scale));
+  }
+
+  30% {
+    transform: translateX(25%) rotate(3deg) scale(var(--wobble-scale));
+  }
+
+  45% {
+    transform: translateX(-10%) rotate(-3deg) scale(var(--wobble-scale));
+  }
+
+  60% {
+    transform: translateX(15%) rotate(2deg) scale(var(--wobble-scale));
+  }
+
+  75% {
+    transform: translateX(0) rotate(-1deg) scale(var(--wobble-scale));
+  }
+}
