@@ -4,7 +4,9 @@
     <div v-else>
       <div class="click-area left" @click="previousPhrase"></div>
       <div class="click-area right" @click="nextPhrase"></div>
-      <div class="story-heading">{{ formattedStory.title }}</div>
+      <div class="story-heading">
+        {{ formattedStory.title }} ({{ formattedStory.phrases.length }})
+      </div>
       <div class="story-wrapper">
         <div class="story-progress">
           <div
