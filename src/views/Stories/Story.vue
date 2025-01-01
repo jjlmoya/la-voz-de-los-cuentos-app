@@ -21,12 +21,14 @@
           :class="{
             'active-phrase': currentPhrase === i,
             'next-phrase': currentPhrase + 1 === i,
-            'slide-in-left': currentPhrase === i && transitioning
+            [precalculatedMetadata[i].transition || 'slide-in-left']:
+              currentPhrase === i && transitioning
           }"
         >
           <div
             class="story-image"
-            :class="`${currentPhrase === i ? precalculatedMetadata[i]?.class: ''} grid-${currentPhrase === i ? precalculatedMetadata[i]?.grid : ''}`"
+            :class="`${currentPhrase === i || currentPhrase === i + 1 ? precalculatedMetadata[i]?.class : ''}
+            grid-${currentPhrase === i || currentPhrase === i + 1 ? precalculatedMetadata[i]?.grid : ''}`"
             :style="precalculatedMetadata[i]?.style"
           >
             <img
@@ -119,7 +121,7 @@
       setTimeout(() => {
         currentPhrase.value++
         transitioning.value = false
-      }, 300)
+      }, 1000)
     }
   }
 
@@ -154,7 +156,7 @@
   }
 
   .story {
-    --transition-time: 0.3s;
+    --transition-duration: .5s;
     color: white;
     width: 100vw;
     height: 100vh;
@@ -268,7 +270,6 @@
 
   .active-phrase {
     z-index: 2;
-    opacity: 1;
   }
 
   .next-phrase {

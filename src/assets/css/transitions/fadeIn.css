@@ -1,13 +1,13 @@
 .fade-in {
-  animation: fadeIn var(--transition-duration) ease-in-out;
+  animation: fadeIn var(--transition-duration) linear forwards;
 }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 1;
   }
 
   to {
-    opacity: 1;
+    opacity: 0;
   }
 }
