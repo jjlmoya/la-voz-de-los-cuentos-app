@@ -1,5 +1,5 @@
-export default (grid) => {
-  switch(grid) {
+export default grid => {
+  switch (grid) {
     case 1:
       return {
         'transform-origin': 'top left'

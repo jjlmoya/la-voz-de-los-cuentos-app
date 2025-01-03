@@ -6,7 +6,6 @@
 @import url('./wobble.css');
 @import url('./zoom-out.css');
 
-
 :root {
   --animation-duration: 3s;
 }

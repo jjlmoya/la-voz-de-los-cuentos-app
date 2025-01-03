@@ -156,7 +156,7 @@
   }
 
   .story {
-    --transition-duration: .5s;
+    --transition-duration: 0.5s;
     color: white;
     width: 100vw;
     height: 100vh;
