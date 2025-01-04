@@ -1,0 +1,19 @@
+.fade-blur {
+  animation: fadeBlur var(--transition-duration) ease-in-out forwards;
+}
+@keyframes fadeBlur {
+  0% {
+    opacity: 1;
+    filter: blur(1px);
+  }
+
+  75% {
+    opacity: 0.5;
+    filter: blur(100px);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(100px);
+  }
+}

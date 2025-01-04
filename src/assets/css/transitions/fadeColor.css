@@ -1,0 +1,23 @@
+.fade-color {
+  animation: fadeColor var(--transition-duration) ease-in-out forwards;
+}
+
+@keyframes fadeColor {
+  0% {
+    opacity: 1;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(0);
+  }
+
+  80% {
+    opacity: 1;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: scale(0);
+  }
+}

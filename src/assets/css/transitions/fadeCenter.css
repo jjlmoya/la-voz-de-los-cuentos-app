@@ -1,0 +1,14 @@
+.fade-center {
+  animation: fadeCenter var(--transition-duration) linear forwards;
+}
+
+@keyframes fadeCenter {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

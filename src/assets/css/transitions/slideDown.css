@@ -1,0 +1,12 @@
+.slide-down {
+  animation: slideUp var(--transition-duration) ease-in-out forwards;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(125%);
+  }
+}

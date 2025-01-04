@@ -1,0 +1,20 @@
+.fade-contrast {
+  animation: fadeContrast var(--transition-duration) ease-in-out forwards;
+}
+
+@keyframes fadeContrast {
+  0% {
+    filter: contrast(1);
+    -webkit-filter: contrast(1);
+  }
+
+  60% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    filter: contrast(10);
+    -webkit-filter: contrast(10);
+  }
+}

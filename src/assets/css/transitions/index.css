@@ -1,7 +1,13 @@
 @import url('./fadeIn.css');
 @import url('./slideInLeft.css');
+@import url('./slideInRight.css');
+@import url('./slideUp.css');
 @import url('./flip.css');
-
+@import url('./fadeCenter.css');
+@import url('./fadeBlur.css');
+@import url('./fadeBright.css');
+@import url('./fadeContrast.css');
+@import url('./fadeColor.css');
 :root {
   --transition-duration: 0.3s;
 }

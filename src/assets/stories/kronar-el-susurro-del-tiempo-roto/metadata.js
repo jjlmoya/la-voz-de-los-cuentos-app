@@ -5,10 +5,10 @@ import giantSteps from '../../presets/animations/giantSteps'
 export default {
   '01': {
     ...giantSteps,
-    transition: 'flip'
+    transition: 'fade-color'
   },
   '02': {
-    ...focus({ grid: 3, time: 3 }),
+    //...focus({ grid: 3, time: 3 }),
     transition: 'fade-in'
   },
   '03': { image: '01', ...defocus({ grid: 3, time: 3 }) },
