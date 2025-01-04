@@ -2,7 +2,7 @@ import { giantSteps, defocus, focus } from '../../presets/animations'
 
 export default {
   '01': {
-    ...giantSteps(),
+    class: 'glowing',
     transition: 'fade-color'
   },
   '02': {

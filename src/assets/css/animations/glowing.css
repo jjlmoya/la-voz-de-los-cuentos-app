@@ -1,0 +1,15 @@
+.glowing {
+  filter: brightness(1.1) saturate(1.2) hue-rotate(-20deg);
+  animation: glowing var(--animation-duration) ease-in-out infinite alternate;
+}
+
+@keyframes glowing {
+  0%,
+  100% {
+    filter: brightness(1.1) saturate(1.2) hue-rotate(-20deg);
+  }
+
+  50% {
+    filter: brightness(1.7) saturate(1.6) hue-rotate(-10deg);
+  }
+}
