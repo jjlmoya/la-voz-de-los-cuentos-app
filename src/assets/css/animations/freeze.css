@@ -1,0 +1,38 @@
+.freeze {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  filter: brightness(70%) grayscale(0.3);
+  transform: scale(1.1);
+}
+
+.freeze::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 150%;
+  pointer-events: none;
+  /* No interfiere con clics */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.5) 10%,
+    transparent 90%
+  );
+  opacity: 0.8;
+  animation:
+    frost-glimmer var(--animation-duration) ease-in-out infinite,
+    frost-drift 6s linear infinite;
+}
+
+@keyframes frost-glimmer {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

@@ -5,7 +5,8 @@
 @import url('./pulse.css');
 @import url('./wobble.css');
 @import url('./zoom-out.css');
-
+@import url('./heatWave.css');
+@import url('./freeze.css');
 :root {
   --animation-duration: 3s;
 }

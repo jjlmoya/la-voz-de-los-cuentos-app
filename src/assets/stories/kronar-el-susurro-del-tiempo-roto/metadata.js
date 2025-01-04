@@ -1,14 +1,12 @@
-import defocus from '../../presets/animations/defocus'
-import focus from '../../presets/animations/focus'
-import giantSteps from '../../presets/animations/giantSteps'
+import { giantSteps, defocus, focus } from '../../presets/animations'
 
 export default {
   '01': {
-    ...giantSteps,
+    ...giantSteps(),
     transition: 'fade-color'
   },
   '02': {
-    //...focus({ grid: 3, time: 3 }),
+    ...focus({ grid: 3, time: 3 }),
     transition: 'fade-in'
   },
   '03': { image: '01', ...defocus({ grid: 3, time: 3 }) },
