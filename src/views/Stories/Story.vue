@@ -36,9 +36,13 @@
               v-if="precalculatedMetadata[i]?.image"
             />
           </div>
-          <div class="story-text">
-            <p :id="i">{{ phrase }}</p>
-          </div>
+          <Phrase
+            v-if="currentPhrase === i"
+            :phrase="phrase"
+            :onPhraseComplete="handleCompletePhrase"
+            :onNextWord="handleNextWord"
+            :onPreviousWord="handlePreviousWord"
+          />
         </div>
       </div>
     </div>
@@ -49,6 +53,7 @@
   import { ref, computed, onBeforeUnmount, watch } from 'vue'
   import useStory from '../../composables/useStory'
   import { Howl } from 'howler'
+  import Phrase from '../../components/Phrase.vue'
 
   const { formattedStory, metadata } = useStory(
     'kronar-el-susurro-del-tiempo-roto'
@@ -68,6 +73,18 @@
         ...metadata.value[idx]
       }
     })
+  }
+
+  const handleCompletePhrase = () => {
+    console.log('fin')
+    nextPhrase()
+  }
+  const handleNextWord = wordIndex => {
+    console.log(`Next word index: ${wordIndex}`)
+  }
+
+  const handlePreviousWord = wordIndex => {
+    console.log(`Previous word index: ${wordIndex}`)
   }
 
   const getImageSrc = image => {
@@ -217,17 +234,6 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  .story-text {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    display: grid;
-    grid-gap: 0;
-    z-index: 100;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
   .story-content {
     position: fixed;
     bottom: 0;
@@ -250,9 +256,6 @@
     transition: width 0.3s ease;
   }
 
-  .story-text {
-    padding: 1em;
-  }
   .story-heading {
     font-size: 18px;
     text-align: center;

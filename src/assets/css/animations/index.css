@@ -8,6 +8,8 @@
 @import url('./heatWave.css');
 @import url('./freeze.css');
 @import url('./glowing.css');
+
+/*todo: añadir movimiento erráticos*/
 :root {
   --animation-duration: 3s;
 }
