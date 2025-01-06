@@ -45,9 +45,8 @@
     }
 
     if (event.key === 'ArrowRight') {
-
       isFinished.value = currentWordIndex.value === words.length - 1
-       if (isFinished.value) {
+      if (isFinished.value) {
         props.onPhraseComplete?.()
       }
       if (currentWordIndex.value < words.length - 1) {
