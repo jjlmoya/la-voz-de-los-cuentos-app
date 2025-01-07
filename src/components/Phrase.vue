@@ -75,6 +75,7 @@
     z-index: 100;
   }
   .phrase__highlight {
-    font-weight: 700;
+   -webkit-text-stroke: 0.8px var(--v-color-primary);
+
   }
 </style>
